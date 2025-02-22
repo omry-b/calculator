@@ -19,3 +19,14 @@ if $CALCULATOR 3 @ 2; then
   echo 'ERROR! An invalid run of the application (3 @ 2) apparently succeeded?!'
   exit 1
 fi
+
+# my tests
+if [[ $($CALCULATOR 5 '*' 4) != "20" ]]; then
+  echo 'ERROR! Multiplication 5 * 4 failed to produce 20!'
+  exit 1
+fi
+
+if [[ $($CALCULATOR 1000 + 2000) != "3000" ]]; then
+  echo 'ERROR! Addition of large numbers (1000 + 2000) failed!'
+  exit 1
+fi
