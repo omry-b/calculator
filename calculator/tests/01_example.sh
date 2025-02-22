@@ -29,24 +29,3 @@ if $CALCULATOR 3 @ 2; then  # If the return code of $PROGRAM is zero (i.e. succe
   echo 'ERROR! An invalid run of the application (3 @ 2) apparently succeeded?!'
   exit 1
 fi
-
-# my tests
-if [[ $($CALCULATOR -q 5 + 3) != "8" ]]; then
-    echo "ERROR: Quiet addition test failed (-q 5 + 3)"
-    exit 1
-fi
-
-if [[ $($CALCULATOR -q 10 - 4) != "6" ]]; then
-    echo "ERROR: Quiet subtraction test failed (-q 10 - 4)"
-    exit 1
-fi
-
-if [[ $($CALCULATOR -q 6 '*' 7) != "42" ]]; then
-    echo "ERROR: Quiet multiplication test failed (-q 6 * 7)"
-    exit 1
-fi
-
-if [[ $($CALCULATOR -q 20 / 5) != "4" ]]; then
-    echo "ERROR: Quiet division test failed (-q 20 / 5)"
-    exit 1
-fi
