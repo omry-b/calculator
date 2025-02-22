@@ -19,13 +19,13 @@ if ! $CALCULATOR 1 + 1; then  # If the return code of $PROGRAM is non-zero (i.e.
 fi
 
 # Test 02: Ensure simple case has correct output...
-if [[ $($CALCULATOR 1 + 1) -ne 2 ]]; then  # If the output of the program is not 2...
+if [[ $($CALCULATOR -q 1 + 1) != "2" ]]; then
   echo 'ERROR! A valid run of the calculator (1 + 1) failed to produce 2 as an output!'
   exit 1
 fi
 
 # Test 03: Ensure program errors with an invalid operand
-if $CALCULATOR 3 @ 2; then  # If the return code of $PROGRAM is zero (i.e. success)...
+if $CALCULATOR 3 @ 2; then
   echo 'ERROR! An invalid run of the application (3 @ 2) apparently succeeded?!'
   exit 1
 fi
