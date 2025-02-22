@@ -31,40 +31,22 @@ if $CALCULATOR 3 @ 2; then  # If the return code of $PROGRAM is zero (i.e. succe
 fi
 
 # my tests
-if [[ $($CALCULATOR 5 + 3) != *"8"* ]]; then
-    echo "ERROR: Addition test failed (5 + 3)"
+if [[ $($CALCULATOR -q 5 + 3) != "8" ]]; then
+    echo "ERROR: Quiet addition test failed (-q 5 + 3)"
     exit 1
 fi
 
-if [[ $($CALCULATOR 10 - 4) != *"6"* ]]; then
-    echo "ERROR: Subtraction test failed (10 - 4)"
+if [[ $($CALCULATOR -q 10 - 4) != "6" ]]; then
+    echo "ERROR: Quiet subtraction test failed (-q 10 - 4)"
     exit 1
 fi
 
-if [[ $($CALCULATOR 6 '*' 7) != *"42"* ]]; then
-    echo "ERROR: Multiplication test failed (6 * 7)"
+if [[ $($CALCULATOR -q 6 '*' 7) != "42" ]]; then
+    echo "ERROR: Quiet multiplication test failed (-q 6 * 7)"
     exit 1
 fi
 
-if [[ $($CALCULATOR 20 / 5) != *"4"* ]]; then
-    echo "ERROR: Division test failed (20 / 5)"
+if [[ $($CALCULATOR -q 20 / 5) != "4" ]]; then
+    echo "ERROR: Quiet division test failed (-q 20 / 5)"
     exit 1
 fi
-
-if [[ $($CALCULATOR -q 10 + 5) != "15" ]]; then
-    echo "ERROR: Quiet mode test failed (-q 10 + 5)"
-    exit 1
-fi
-
-if $CALCULATOR 3 @ 2; then
-    echo "ERROR: Invalid operator test failed (3 @ 2)"
-    exit 1
-fi
-
-if $CALCULATOR; then
-    echo "ERROR: No arguments test failed"
-    exit 1
-fi
-
-echo "All tests passed successfully!"
-exit 0
